@@ -20,5 +20,10 @@ DB_PORT = [ postgres port usually 5432 ]
 
 ## Git commands for the terminal
 
+### Status
+
+git status
+
 ### Multiline commit message
-git commit eg.index.js -m "Note the Changes" -m "- Fixed a bug"
+
+git commit index.js -m "Note the Changes" -m "- Fixed a bug"
