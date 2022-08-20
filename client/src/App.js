@@ -4,6 +4,7 @@ import './App.css';
 
 // components
 import InputDepartment from './components/InputDepartment';
+import ListDepartment from './components/ListDepartments';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 		<Fragment>
 			<div className="container">
 				<InputDepartment />
+				<ListDepartment />
 			</div>
 		</Fragment>
 	);
