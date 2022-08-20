@@ -9,9 +9,10 @@ const ListDepartments = () => {
 	const getDepartments = async () => {
 		try {
 			const response = await fetch(
-				"http://localhost:5000/departments"
+				'http://localhost:5000/departments'
 			);
 			const jsonData = await response.json();
+
 			setDepartments(jsonData);
 		} catch (err) {
 			console.error(err.message);
@@ -21,6 +22,28 @@ const ListDepartments = () => {
 	useEffect(() => {
 		getDepartments();
 	}, []);
+
+	const deleteDepartment = async (id) => {
+		try {
+			const deleteDepartment = await fetch(
+				`http://localhost:5000/departments/${id}`,
+				{
+					method: 'DELETE',
+				}
+			);
+
+			setDepartments(
+				departments.filter(
+					(department) =>
+						department.department_id !== id
+				)
+			);
+
+			console.log(`Deleted department: ${id}`);
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
 
 	return (
 		<Fragment>
@@ -36,15 +59,24 @@ const ListDepartments = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{departments.map(
-						(department, index) => (
-							<tr key={index}>
-								<td>{department.description}</td>
-								<td>Edit</td>
-								<td>Delete</td>
-							</tr>
-						)
-					)}
+					{departments.map((department) => (
+						<tr key={department.department_id}>
+							<td>{department.description}</td>
+							<td>Edit</td>
+							<td>
+								<button
+									className="btn btn-danger"
+									onClick={() =>
+										deleteDepartment(
+											department.department_id
+										)
+									}
+								>
+									Delete
+								</button>
+							</td>
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</Fragment>
