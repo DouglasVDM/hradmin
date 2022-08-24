@@ -1,46 +1,55 @@
 import React, { Fragment, useState } from 'react';
 
 const InputDepartment = () => {
+	const [description, setDescription] =
+		useState('');
 
-const [description, setDescription] = useState('');
+	const onSubmitForm = async (event) => {
+		event.preventDefault();
+		try {
+			const body = { description };
+			const response = await fetch(
+				'http://localhost:5000/departments',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(body),
+				}
+			);
 
-const onSubmitForm = async (event)=>{
-	event.preventDefault();
-
-	try {
-		const body = {description};
-		const response = await fetch("http://localhost:5000/departments", {
-			method: "POST",
-			headers: {"Content-Type":"application/json"},
-			body: JSON.stringify(body)
-		});
-
-		console.log(response);
-
-	} catch (err) {
-		console.error(err.message)
-	}
-}
+			console.log(response);
+			setDescription('');
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
 
 	return (
 		<Fragment>
-			<h1 className='text-center mt-5'>Input Department</h1>
+			<h1 className="text-center mt-5">
+				Input Department
+			</h1>
 			<form
-			className='d-flex mt-5'
-			onSubmit={onSubmitForm}
+				className="d-flex mt-5"
+				onSubmit={onSubmitForm}
 			>
-
 				<input
-				type="text"
-				className='form-control'
-				value={description}
-				onChange={(event)=> setDescription(event.target.value)}
+					type="text"
+					className="form-control"
+					value={description}
+					onChange={(event) =>
+						setDescription(event.target.value)
+					}
 				/>
 
-				<button className='btn btn-success'>Add</button>
+				<button className="btn btn-success">
+					Add
+				</button>
 			</form>
 		</Fragment>
-	)
-}
+	);
+};
 
 export default InputDepartment;
