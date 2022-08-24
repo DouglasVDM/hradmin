@@ -21,7 +21,7 @@ const ListDepartments = () => {
 
 	useEffect(() => {
 		getDepartments();
-	}, []);
+	}, [departments]);
 
 	const deleteDepartment = async (id) => {
 		try {
