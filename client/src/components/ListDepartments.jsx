@@ -1,6 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { useEffect } from 'react';
 
+// components
+import EditDepartment from './EditDepartment';
+
 const ListDepartments = () => {
 	const [departments, setDepartments] = useState(
 		[]
@@ -62,7 +65,9 @@ const ListDepartments = () => {
 					{departments.map((department) => (
 						<tr key={department.department_id}>
 							<td>{department.description}</td>
-							<td>Edit</td>
+							<td>
+								<EditDepartment />
+							</td>
 							<td>
 								<button
 									className="btn btn-danger"
