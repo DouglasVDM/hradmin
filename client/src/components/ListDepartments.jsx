@@ -15,7 +15,7 @@ const ListDepartments = () => {
 				'http://localhost:5000/departments'
 			);
 			const jsonData = await response.json();
-
+			
 			setDepartments(jsonData);
 		} catch (err) {
 			console.error(err.message);
@@ -66,7 +66,9 @@ const ListDepartments = () => {
 						<tr key={department.department_id}>
 							<td>{department.description}</td>
 							<td>
-								<EditDepartment />
+								<EditDepartment
+									department={department}
+								/>
 							</td>
 							<td>
 								<button
