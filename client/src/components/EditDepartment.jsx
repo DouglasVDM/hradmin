@@ -1,6 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
-const EditDepartment = () => {
+const EditDepartment = ({ department }) => {
+	const [description, setDescription] = useState(
+		department.description
+	);
+
 	return (
 		<Fragment>
 			<button
@@ -38,6 +42,7 @@ const EditDepartment = () => {
 							<input
 								type="text"
 								className="form-control"
+								value={description}
 							/>
 						</div>
 						<div className="modal-footer">
@@ -58,7 +63,7 @@ const EditDepartment = () => {
 						</div>
 					</div>
 				</div>
-			</div>{' '}
+			</div>
 		</Fragment>
 	);
 };
