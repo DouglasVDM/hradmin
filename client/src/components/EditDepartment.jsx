@@ -11,13 +11,13 @@ const EditDepartment = ({ department }) => {
 				type="button"
 				className="btn btn-warning"
 				data-bs-toggle="modal"
-				data-bs-target="#exampleModal"
+				data-bs-target={`#id${department.department_id}`}
 			>
 				Edit
 			</button>
 			<div
 				className="modal fade"
-				id="exampleModal"
+				id={`id${department.department_id}`}
 				tabIndex="-1"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
@@ -43,6 +43,11 @@ const EditDepartment = ({ department }) => {
 								type="text"
 								className="form-control"
 								value={description}
+								onChange={(event) =>
+									setDescription(
+										event.target.value
+									)
+								}
 							/>
 						</div>
 						<div className="modal-footer">
