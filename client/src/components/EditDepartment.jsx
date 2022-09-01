@@ -5,6 +5,28 @@ const EditDepartment = ({ department }) => {
 		department.description
 	);
 
+	// edit description function
+	const updateDescription = async (event) => {
+		event.preventDefault();
+		try {
+			const body = { description };
+			const response = await fetch(
+				`http://localhost:5000/departments/${department.department_id}`,
+				{
+					method: 'PUT',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(body),
+				}
+			);
+
+			console.log(response);
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
+
 	return (
 		<Fragment>
 			<button
@@ -55,6 +77,9 @@ const EditDepartment = ({ department }) => {
 								type="button"
 								className="btn btn-warning"
 								data-bs-dismiss="modal"
+								onClick={(event) =>
+									updateDescription()
+								}
 							>
 								Save changes
 							</button>
