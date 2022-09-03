@@ -1,31 +1,12 @@
-import React, { Fragment, useState } from 'react';
-import { useEffect } from 'react';
+import React, { Fragment } from 'react';
 
 // components
 import EditDepartment from './EditDepartment';
 
-const ListDepartments = () => {
-	const [departments, setDepartments] = useState(
-		[]
-	);
-
-	const getDepartments = async () => {
-		try {
-			const response = await fetch(
-				'http://localhost:5000/departments'
-			);
-			const jsonData = await response.json();
-			
-			setDepartments(jsonData);
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
-
-	useEffect(() => {
-		getDepartments();
-	}, [departments]);
-
+const ListDepartments = ({
+	departments,
+	setDepartments,
+}) => {
 	const deleteDepartment = async (id) => {
 		try {
 			const deleteDepartment = await fetch(
