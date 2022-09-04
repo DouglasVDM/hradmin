@@ -21,6 +21,7 @@ const EditDepartment = ({ department }) => {
 				}
 			);
 
+			window.location = '/';
 			console.log(response);
 		} catch (err) {
 			console.error(err.message);
@@ -43,6 +44,9 @@ const EditDepartment = ({ department }) => {
 				tabIndex="-1"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
+				onClick={() =>
+					setDescription(department.description)
+				}
 			>
 				<div className="modal-dialog">
 					<div className="modal-content">
@@ -58,6 +62,11 @@ const EditDepartment = ({ department }) => {
 								className="btn-close"
 								data-bs-dismiss="modal"
 								aria-label="Close"
+								onClick={() =>
+									setDescription(
+										department.description
+									)
+								}
 							></button>
 						</div>
 						<div className="modal-body">
@@ -78,7 +87,7 @@ const EditDepartment = ({ department }) => {
 								className="btn btn-warning"
 								data-bs-dismiss="modal"
 								onClick={(event) =>
-									updateDescription()
+									updateDescription(event)
 								}
 							>
 								Save changes
@@ -87,6 +96,11 @@ const EditDepartment = ({ department }) => {
 								type="button"
 								className="btn btn-secondary"
 								data-bs-dismiss="modal"
+								onClick={() =>
+									setDescription(
+										department.description
+									)
+								}
 							>
 								Exit
 							</button>
