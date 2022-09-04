@@ -6,6 +6,7 @@ const InputDepartment = () => {
 
 	const onSubmitForm = async (event) => {
 		event.preventDefault();
+
 		try {
 			const body = { description };
 			const response = await fetch(
@@ -19,8 +20,8 @@ const InputDepartment = () => {
 				}
 			);
 
+			window.location = '/';
 			console.log(response);
-			setDescription('');
 		} catch (err) {
 			console.error(err.message);
 		}
