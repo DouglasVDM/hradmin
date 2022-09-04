@@ -9,8 +9,7 @@ import ListDepartment from './components/ListDepartments';
 
 function App() {
 
-	const counter = useSelector(state => state.counter);
-
+	
 	const [departments, setDepartments] = useState([]);
 
 	const getDepartments = async () => {
