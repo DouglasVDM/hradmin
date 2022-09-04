@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import './App.css';
 
 // components
@@ -8,9 +7,6 @@ import ListDepartment from './components/ListDepartments';
 
 
 function App() {
-
-	const counter = useSelector(state => state.counter);
-
 	const [departments, setDepartments] = useState([]);
 
 	const getDepartments = async () => {
