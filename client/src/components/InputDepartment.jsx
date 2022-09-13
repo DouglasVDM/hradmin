@@ -19,7 +19,7 @@ const InputDepartment = () => {
 				}
 			);
 
-			console.log(response);
+			console.log('input_department:', response);
 			setDescription('');
 		} catch (err) {
 			console.error(err.message);

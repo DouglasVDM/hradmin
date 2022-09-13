@@ -21,7 +21,7 @@ const EditDepartment = ({ department }) => {
 				}
 			);
 
-			console.log(response);
+			console.log('edit_department: ',response);
 		} catch (err) {
 			console.error(err.message);
 		}

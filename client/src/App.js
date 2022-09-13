@@ -27,7 +27,7 @@ function App() {
 		getDepartments();
 	}, []);
 
-	console.log('appjs departments:', departments);
+	console.log('appjs:', departments);
 
 	return (
 		<Fragment>
