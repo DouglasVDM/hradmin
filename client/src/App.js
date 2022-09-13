@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import './App.css';
 
 // components
@@ -9,7 +8,6 @@ import ListDepartment from './components/ListDepartments';
 
 function App() {
 
-	
 	const [departments, setDepartments] = useState([]);
 
 	const getDepartments = async () => {
@@ -29,7 +27,7 @@ function App() {
 		getDepartments();
 	}, []);
 
-	console.log(departments);
+	console.log('appjs departments:', departments);
 
 	return (
 		<Fragment>
