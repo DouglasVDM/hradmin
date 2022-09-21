@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
+import Register from './components/Register'
 import './App.css';
 
 // components
@@ -34,6 +35,7 @@ function App() {
 			<div className="container">
 				<InputDepartment departments={departments} setDepartments={setDepartments} />
 				<ListDepartment departments={departments} setDepartments={setDepartments} />
+				<Register />
 			</div>
 		</Fragment>
 	);
